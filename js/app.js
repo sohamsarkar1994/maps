@@ -8,7 +8,7 @@ var mapsLoaded = 0;
 // Loading data in maps
 locations.forEach(function(value){
   $.ajax({
-    url: 'https://api.foursquare.com/v2/venues/search?ll='+value.lat+','+value.lng+'&client_id='+'VSEOIZJCI1UOBSLHKFZJS5HBQODNQSS3UT1RFSUPBTCGWOXA'+'&client_secret='+'T5NQZH15JQ3LFIJCG4P3MWKXSNRIBC0WFDGB5XUARVWHOEW0'+'&v=20180311' + '&m=foursquare',
+    url: 'https://api.foursquare.com/v2/venues/search?ll='+value.lat+','+value.lng+'&client_id='+'HYKIUSKZRLDQOADHYKQ2GWNORC13XW010310LGOFP3S00PWK'+'&client_secret='+'300RYGAKHYRVWHT4R2FR0S3GY2AM1JVDNS3BIZGSSG12200J'+'&v=20180311' + '&m=foursquare',
     datatype: 'json',
     async: true,
     success: function(data) {
