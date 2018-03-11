@@ -1,0 +1,64 @@
+html,
+body {
+  font-family: Arial,sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #404040;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(184, 153, 129, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")
+}
+
+
+.container-fluid {
+  height: 100%;
+  position: relative;
+}
+
+.row {
+  height: 100%;
+  display: flex-column;
+}
+
+#map {
+  bottom : 15px;
+  height: 90%;
+  left: 15px;
+  position: absolute;
+  right: 0px;
+  width:100%;
+}
+
+#menu {
+  padding-left: 0px;
+  padding-right: 0px;
+  background: #999;
+}
+
+
+h1 {
+  color: #525454;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+li:hover {
+   color: #fff;
+   cursor:pointer;
+}
+
+span {
+  color: #fff;
+}
+
+.options-box {
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  line-height: 35px;
+  padding: 10px 10px 30px 10px;
+  text-align: left;
+}
