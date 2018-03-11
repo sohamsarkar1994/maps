@@ -23,6 +23,7 @@
       <button type="button" class="navbar-toggler bg-dark" data-toggle="collapse" data-target="#listofitems">
           <span class="navbar-toggler-icon"></span>
       </button>
+      <hr>
       <div id="map"></div>
    </div>
   </div>
@@ -52,6 +53,6 @@
    });
   </script>
   <script async defer
-   src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyB078Y7Nv11lfxBzaDfZh_hjmD_f1CWYaE&v=3&callback=initMap"></script>
+   src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyB078Y7Nv11lfxBzaDfZh_hjmD_f1CWYaE&v=3&callback=initMap" onerror="mapsError()"></script>
 </body>
 </html>

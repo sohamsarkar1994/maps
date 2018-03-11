@@ -20,14 +20,18 @@ locations.forEach(function(value){
       }
       else {
         value.address = "No results";
+        mapsLoaded++;
+        call();
       }
     },
     error: function(err) {
       value.address = "An error has occured in foursquare api. Please try again later";
+      mapsLoaded++;
+      call();
     }
   });
 function call() {
- if(mapsLoaded === 8){
+ if(mapsLoaded === locations.length) {
    initMap();
  }
 }
@@ -88,13 +92,12 @@ if(mapsLoaded === 8) {
 var largeInfoWindow = new google.maps.InfoWindow();
 var bounds = new google.maps.LatLngBounds();
 
-locations.forEach(function(loc){
-   var index = locations.indexOf(loc);
-   var position = loc.location;
-   var title = loc.title;
-   var lat= loc.lat;
-   var lng= loc.lng;
-   var address= loc.address;
+for(var index=0;index<locations.length;index++) {
+   var position = locations[index].location;
+   var title = locations[index].title;
+   var lat= locations[index].lat;
+   var lng= locations[index].lng;
+   var address= locations[index].address;
    var marker =  new google.maps.Marker({
      map: map,
      position: {
@@ -117,8 +120,11 @@ locations.forEach(function(loc){
  marker.addListener('click', function() {
    toggleBounce(this);
  });
-});
+}
  map.fitBounds(bounds);
+ var mapsError = function() {
+   $('map').append("<h1>Ar error has occured while loading the map. Please, try again later </h1>");
+ }
  ko.applyBindings(viewModel());
 }
 }
