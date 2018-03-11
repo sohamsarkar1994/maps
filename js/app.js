@@ -6,7 +6,7 @@ var markers = [];
 var mapsLoaded = 0;
 
 // Loading data in maps
-locations.forEach(function(value){
+locations.forEach(function(value) {
   $.ajax({
     url: 'https://api.foursquare.com/v2/venues/search?ll='+value.lat+','+value.lng+'&client_id='+'HYKIUSKZRLDQOADHYKQ2GWNORC13XW010310LGOFP3S00PWK'+'&client_secret='+'300RYGAKHYRVWHT4R2FR0S3GY2AM1JVDNS3BIZGSSG12200J'+'&v=20180311' + '&m=foursquare',
     datatype: 'json',
@@ -92,12 +92,12 @@ if(mapsLoaded === 8) {
 var largeInfoWindow = new google.maps.InfoWindow();
 var bounds = new google.maps.LatLngBounds();
 
-for(var index=0;index<locations.length;index++) {
-   var position = locations[index].location;
-   var title = locations[index].title;
-   var lat= locations[index].lat;
-   var lng= locations[index].lng;
-   var address= locations[index].address;
+locations.forEach(function(loc) {
+   var index = locations.indexOf(loc);
+   var title = loc.title;
+   var lat= loc.lat;
+   var lng= loc.lng;
+   var address= loc.address;
    var marker =  new google.maps.Marker({
      map: map,
      position: {
@@ -120,11 +120,11 @@ for(var index=0;index<locations.length;index++) {
  marker.addListener('click', function() {
    toggleBounce(this);
  });
-}
+});
  map.fitBounds(bounds);
  var mapsError = function() {
    $('map').append("<h1>Ar error has occured while loading the map. Please, try again later </h1>");
- }
+ };
  ko.applyBindings(viewModel());
 }
 }

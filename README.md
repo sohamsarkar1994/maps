@@ -7,6 +7,7 @@ This is a map of Siliguri. This place thrives on tourism. So, this is to help al
 
 ## Instructions
 * run the file index.html in google chrome.
+* wait for the map to load its contents.
 * select any address from the list which you interest you.
 * there is a menu button which displays and hides the list of places.
 * click on the (list item/marker) to get information about that place.
