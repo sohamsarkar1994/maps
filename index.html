@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title> Neighborhood Map Project</title>
+  <title> Neighbourhood Map Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-2 options-box"id="menu">
-     <span><strong>Map Search:</strong></span> <input id="entertext" data-bind="value:separate,valueUpdate:'keyup'" placeholder="search">
+    <div class="col-sm-2 options-box menubar" id="menu">
+     <span><strong>Map Search:</strong></span> <input class="entertext" data-bind="value: separate, valueUpdate:'keyup'" placeholder="search">
      <hr>
         <div>
            <ul data-bind="foreach:separateArray" id="list">
@@ -19,11 +19,11 @@
            </ul>
         </div>
     </div>
-  <div class="col-sm-12" id="map-body">
+  <div class="col-sm-12 map-space" id="map-body">
       <button type="button" class="navbar-toggler bg-dark" data-toggle="collapse" data-target="#listofitems">
           <span class="navbar-toggler-icon"></span>
       </button>
-      <div id="map"></div>
+      <div id="map" class="map"></div>
    </div>
   </div>
  </div>

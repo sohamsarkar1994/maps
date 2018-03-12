@@ -19,23 +19,15 @@ body {
 
 .row {
   height: 100%;
-  display: flex-column;
 }
 
-#map {
+.map {
   bottom : 15px;
   height: 90%;
   left: 15px;
   position: absolute;
   right: 0px;
   width:100%;
-}
-
-#menu {
-  padding-left: 0px;
-  padding-right: 0px;
-  background: #999;
-  overflow-y: auto;
 }
 
 
@@ -55,7 +47,7 @@ span {
   color: #fff;
 }
 
-#entertext {
+.entertext {
    width:100%;
 }
 
@@ -68,15 +60,35 @@ span {
   text-align: left;
 }
 
-@media screen and (max-width: 560px){
-       #map {
+@media screen and (max-width: 565px) {
+
+
+       .map {
          top: 50px;
        }
-       #map-body{
+
+
+       .map-space {
            height:50vh;
        }
-       #menu{
+
+
+       .menubar {
            height:50vh;
+           background-color: #999;
            overflow-y: auto;
        }
+
+
+}
+
+@media screen and (min-width: 566px) {
+
+      .menubar {
+          padding-left: 0px;
+          padding-right: 0px;
+          background-color: #999;
+          overflow-y: auto;
+      }
+
 }

@@ -8,7 +8,7 @@ var mapsLoaded = 0;
 // Loading data in maps
 locations.forEach(function(value) {
   $.ajax({
-    url: 'https://api.foursquare.com/v2/venues/search?ll='+value.lat+','+value.lng+'&client_id='+'HYKIUSKZRLDQOADHYKQ2GWNORC13XW010310LGOFP3S00PWK'+'&client_secret='+'300RYGAKHYRVWHT4R2FR0S3GY2AM1JVDNS3BIZGSSG12200J'+'&v=20180311' + '&m=foursquare',
+    url: 'https://api.foursquare.com/v2/venues/search?ll='+value.lat+','+value.lng+'&client_id='+'HYKIUSKZRLDQOADHYKQ2GWNORC13XW010310LGOFP3S00PWK'+'&client_secret='+'300RYGAKHYRVWHT4R2FR0S3GY2AM1JVDNS3BIZGSSG12200J'+'&v=20180312' + '&m=foursquare',
     datatype: 'json',
     async: true,
     success: function(data) {
@@ -16,25 +16,20 @@ locations.forEach(function(value) {
       if(venues1.length > 0){
          value.address = venues1;
          mapsLoaded++;
-         call();
+         initMap();
       }
       else {
         value.address = "No results";
         mapsLoaded++;
-        call();
+        initMap();
       }
     },
     error: function(err) {
       value.address = "An error has occured in foursquare api. Please try again later";
       mapsLoaded++;
-      call();
+      initMap();
     }
   });
-function call() {
- if(mapsLoaded === locations.length) {
-   initMap();
- }
-}
 });
 
 
@@ -79,15 +74,14 @@ var viewModel = function() {
 
 //Initalizing Map
 function initMap() {
-if(mapsLoaded === 8) {
-  map = new google.maps.Map(document.getElementById("map"),{
-    center: {lat : 26.727101, lng: 88.395286},
-    zoom: 14,
-    styles: styles,
-    mapTypeControl: false
-  });
 
-
+  if(mapsLoaded === 8) {
+    map = new google.maps.Map(document.getElementById("map"),{
+      center: {lat : 26.727101, lng: 88.395286},
+      zoom: 14,
+      styles: styles,
+      mapTypeControl: false
+    });
 
 var largeInfoWindow = new google.maps.InfoWindow();
 var bounds = new google.maps.LatLngBounds();
@@ -122,12 +116,13 @@ locations.forEach(function(loc) {
  });
 });
  map.fitBounds(bounds);
- var mapsError = function() {
-   $('map').append("<h1>Ar error has occured while loading the map. Please, try again later </h1>");
- };
  ko.applyBindings(viewModel());
 }
 }
+
+var mapsError = function() {
+  $('#map').append("<h1>Ar error has occured while loading the map. Please, try again later </h1>");
+};
 
 // For displaying information in infowindow
 function populateInfoWindow(marker, infowindow) {
