@@ -7,7 +7,7 @@ This is a map of Siliguri. This place thrives on tourism. So, this is to help al
 
 ## link
 
-You can find a live running site of this code [here](https://sohamsarkar1994.github.io/maps/https://sohamsarkar1994.github.io/maps/).
+You can find a live running site of this code [here](https://sohamsarkar1994.github.io/maps/).
 
 ## Instructions
 * run the file index.html in google chrome.
